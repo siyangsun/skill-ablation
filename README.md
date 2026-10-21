@@ -16,10 +16,10 @@ Each command is its own skill, namespaced by the plugin: `/skill-ablation:scan`,
 
 ```bash
 claude plugin marketplace add siyangsun/skill-ablation   # or a local path to a clone
-claude plugin install skill-ablation@skill-ablation-local
+claude plugin install skill-ablation@skill-ablation
 ```
 
-Restart Claude Code. After editing the plugin, bump `version` in `.claude-plugin/plugin.json` (the version pins the installed copy), then run `claude plugin marketplace update skill-ablation-local` and `claude plugin update skill-ablation@skill-ablation-local`.
+Restart Claude Code. After editing the plugin, bump `version` in `.claude-plugin/plugin.json` (the version pins the installed copy), then run `claude plugin marketplace update skill-ablation` and `claude plugin update skill-ablation@skill-ablation`.
 
 ## Files it creates
 
