@@ -11,7 +11,7 @@ Arguments: `$ARGUMENTS`
 
 Read `${CLAUDE_PLUGIN_ROOT}/shared/conventions.md` first (files, hard rules).
 
-1. List skills with `obsolete: true` in routing.yaml: name, path, size. Drop synced ones with a note. None left: say so and stop.
+1. List skills with `obsolete: true` in routing.yaml: name, path, size. Drop synced and plugin skills with a note. None left: say so and stop.
 2. `--dry-run`: print the list and stop.
 3. Otherwise ask with AskUserQuestion (multiSelect) which to delete. Deletion is permanent (no variants kept), so state that once and show the path.
 4. For each selected: `rm -r <skill-dir>` (use the resolved real directory, not through a symlinked SKILL.md), then remove its entry from routing.yaml. Report what was deleted.

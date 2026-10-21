@@ -63,6 +63,7 @@ Sources are official only: Anthropic's model pages and release notes, the model'
 - **Token figures are estimates.** Size uses about 2.5 characters per token (Anthropic's figure for the current tokenizer), ±20%. Reports written before 0.1.2 used 4 characters per token and understate absolute tokens by about 1.6x; percentages are unaffected.
 - **"% cuttable" in `scan` is judgment**, from content mix. Use it to order work, not to predict savings.
 - **Tested:** `scan`, and `triage` with opus on personal skills (including activation and revert). **Not tested:** `prune`, `--refresh`, `--model sonnet|haiku`, project-level `.claude/skills/`.
+- **Plugin-managed skills** (ponytail, good-css and so on, under `~/.claude/plugins/cache/`) are report-only: they are scanned and triaged, and variants are written to `~/.claude/skill-ablation/plugin-variants/`, but never activated or pruned. Updates replace the cache folder, and `skillOverrides` does not apply to plugin skills. Send the slimmed version to the plugin's repo instead.
 - **Synced claude.ai skills** (`~/.claude/skills/synced/`) can be scanned and triaged but not activated or pruned: the docs say a later sync can overwrite or remove local edits. Copy the skill into `~/.claude/skills/<name>/` if you want a slim version.
 - **Plugin updates can overwrite your symlinks.** If a plugin that installs into `~/.claude/skills/` updates, re-check which variant is active.
 - **`references/` folders are not triaged.** Only `SKILL.md` is.
