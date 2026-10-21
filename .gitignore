@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# editor / temp / backups
+*.bak
+*.tmp
+*.swp
+*~
+
+# Claude Code local state (never commit)
+.claude/settings.local.json
+.claude/projects/
+
+# local skill-ablation working files (live in ~/.claude/skill-ablation, not in this repo)
+reports/
+variants/
+routing.yaml

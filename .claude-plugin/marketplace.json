@@ -1,0 +1,8 @@
+{
+  "name": "skill-ablation-local",
+  "owner": { "name": "siyang" },
+  "description": "Local marketplace for the skill-ablation plugin",
+  "plugins": [
+    { "name": "skill-ablation", "source": "./", "description": "Heuristic triage of skills made obsolete by newer models" }
+  ]
+}

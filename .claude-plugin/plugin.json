@@ -1,0 +1,6 @@
+{
+  "name": "skill-ablation",
+  "version": "0.2.1",
+  "description": "Audit skills for instructions made obsolete by newer Claude models and propose slimmed variants",
+  "author": { "name": "siyang" }
+}
