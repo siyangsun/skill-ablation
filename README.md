@@ -6,8 +6,8 @@ Treat every proposed cut as a hypothesis. Read each diff before you activate any
 
 ## What it does
 
-- `/skill-ablation:scan`: ranks all your skills by likely savings. Read-only.
-- `/skill-ablation:triage <skill> [--model opus|sonnet|haiku] [--refresh]`: classifies each block of one skill (CUT / SOFTEN / KEEP / UNSURE), writes a report, writes a slim variant, shows the diff, and asks before activating it.
+- `/skill-ablation:scan [path]`: ranks all your skills by likely savings, or just the skill or plugin at a path. Read-only.
+- `/skill-ablation:triage <skill | plugin:skill | path> [--model opus|sonnet|haiku] [--refresh]`: classifies each block of one skill (CUT / SOFTEN / KEEP / UNSURE), writes a report, writes a slim variant, shows the diff, and asks before activating it.
 - `/skill-ablation:prune [--dry-run]`: deletes skills you have marked `obsolete: true`, after explicit confirmation.
 
 Each command is its own skill, namespaced by the plugin: `/skill-ablation:scan`, `/skill-ablation:triage <skill>`, `/skill-ablation:prune`.
@@ -67,6 +67,7 @@ Sources are official only: Anthropic's model pages and release notes, the model'
 - **Synced claude.ai skills** (`~/.claude/skills/synced/`) can be scanned and triaged but not activated or pruned: the docs say a later sync can overwrite or remove local edits. Copy the skill into `~/.claude/skills/<name>/` if you want a slim version.
 - **Plugin updates can overwrite your symlinks.** If a plugin that installs into `~/.claude/skills/` updates, re-check which variant is active.
 - **`references/` folders are not triaged.** Only `SKILL.md` is.
+- **Repo skills** (a skill or plugin you are developing, passed as a path) are report-only too. Apply cuts by editing the repo on a branch, test with `claude --plugin-dir <folder>`, bump the version. A symlink there would be committed.
 - Skills that were written for another harness may have parameters that don't exist in Claude Code (for example subagent types or model names). Triage notes it but does not rewrite it.
 
 ## Safety rules
