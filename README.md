@@ -12,6 +12,23 @@ Treat every proposed cut as a hypothesis. Read each diff before you activate any
 
 Each command is its own skill, namespaced by the plugin: `/skill-ablation:scan`, `/skill-ablation:triage <skill>`, `/skill-ablation:prune`.
 
+## scan vs triage
+
+`scan` is a quick ranking; `triage` is the full analysis of one skill.
+
+| | `scan` | `triage` |
+|---|---|---|
+| Scope | All your skills, or one path | One skill |
+| Depth | Measures what each skill is made of (code, tables, pointers, prose) and estimates % cuttable | Judges every block: CUT, SOFTEN, KEEP or UNSURE, with a reason for each |
+| Model research | Uses cached release notes if present, never fetches | Looks up the current model, fetches or reuses its release notes, loads the skill-authoring rules |
+| Output | One ranked table in the chat | A report file, a slim variant file, a diff, and structure flags |
+| Writes files | No (creates `routing.yaml` only on a first full run) | Yes: report, variant, optional `routing.yaml` update |
+| Changes your skill | Never | Only if you approve activation, and only for personal skills |
+| Cost | Cheap: reads each skill once | Heavier: reads one skill closely, may do web lookups |
+| Reliability | Judgment from content mix; good for ordering only | Per-block verdicts, with seed test prompts for the doubtful ones |
+
+**Typical workflow:** run `scan` first to decide where to spend effort; the top rows are the best candidates. Run `triage <skill>` on those one at a time and read each diff before activating. Use `prune` only for skills that triage marks as fully obsolete. Neither command measures whether a slimmed skill still works; that is the planned `run` command.
+
 ## Install
 
 ```bash
